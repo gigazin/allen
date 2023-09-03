@@ -1,0 +1,35 @@
+.root {
+    -fx-background-color: linear-gradient(to right bottom, #0074ad, #003954);
+}
+
+#windowBorder {
+    -fx-background-color: #00000050;
+    -fx-text-alignment: center;
+}
+
+#applicationTitle, #loginStatus {
+    -fx-font-family: 'Raleway', 'sans-serif';
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+    -fx-text-alignment: center;
+}
+
+#minimizeButton, #closeButton {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Raleway', 'sans-serif';
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+
+#closeButton {
+    -fx-font-size: 12px;
+}
+
+#launchButton {
+    -fx-background-color: linear-gradient(to right bottom, #fa8748, #9829c4);
+    -fx-font-family: 'Raleway', 'sans-serif';
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-background-radius: 50px;
+}

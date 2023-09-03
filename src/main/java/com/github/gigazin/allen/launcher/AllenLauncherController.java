@@ -1,16 +1,24 @@
 package com.github.gigazin.allen.launcher;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import com.github.gigazin.allen.core.Allen;
+import javafx.scene.layout.AnchorPane;
 
 public class AllenLauncherController {
 
     @FXML
-    private Label allenLauncherText;
+    private AnchorPane applicationRootBackground;
+    @FXML
+    private AnchorPane windowBorder;
+    @FXML
+    private Label applicationTitle;
+    @FXML
+    private Button minimizeButton;
+    @FXML
+    private Button closeButton;
     @FXML
     private Button launchButton;
     @FXML
@@ -18,8 +26,7 @@ public class AllenLauncherController {
 
     @FXML
     protected void onLaunchButtonClick() {
-        loginStatus.setText("Allen is logging in...");
         Allen.launch();
-        loginStatus.setText("Allen has logged in!");
+        loginStatus.setText("Allen has logged in! :)");
     }
 }
