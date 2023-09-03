@@ -26,16 +26,20 @@ public class AllenLauncherController {
     @FXML
     private Label loginStatus;
 
+    private boolean isLaunched = false;
+
     @FXML
     protected void onLaunchButtonClick() {
-        Allen.launch();
+        Allen.action("launch");
         loginStatus.setText("Allen has logged in! :)");
+        isLaunched = true;
     }
 
     @FXML
     protected void onCloseButtonClick(ActionEvent e) {
         Stage stage;
         stage = (Stage)((Button)e.getSource()).getScene().getWindow();
+        if (isLaunched) Allen.action("shutdown");
         stage.close();
     }
 

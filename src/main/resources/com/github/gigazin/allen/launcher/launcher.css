@@ -1,5 +1,6 @@
 .root {
     -fx-background-color: linear-gradient(to right bottom, #0074ad, #003954);
+    -fx-effect: dropshadow(gaussian, #00000035, 10, 0.9, 0, 0);
 }
 
 #windowBorder {
@@ -43,4 +44,8 @@
     -fx-scale-x: 1.1px;
     -fx-scale-y: 1.1px;
     -fx-cursor: hand;
+}
+
+#launchButton:pressed {
+    -fx-background-color: linear-gradient(to right bottom, #864726, #55146c);
 }
