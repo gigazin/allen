@@ -3,6 +3,7 @@ package com.github.gigazin.allen.launcher;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -16,6 +17,7 @@ public class AllenLauncher extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 434, 223);
         String style = Objects.requireNonNull(this.getClass().getResource("launcher.css")).toExternalForm();
         scene.getStylesheets().add(style);
+        stage.getIcons().add(new Image(String.valueOf(this.getClass().getResource("allen-icon.png"))));
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("Allen Launcher Application");
         stage.setScene(scene);

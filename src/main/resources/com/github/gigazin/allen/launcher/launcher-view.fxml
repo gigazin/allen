@@ -4,14 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane fx:id="applicationRootBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="223.0" prefWidth="434.0" stylesheets="@launcher.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.gigazin.allen.launcher.AllenLauncherController">
    <children>
       <AnchorPane fx:id="windowBorder" layoutX="-1.0" prefHeight="46.0" prefWidth="435.0">
          <children>
             <Label fx:id="applicationTitle" layoutX="14.0" layoutY="15.0" text="Allen Launcher Application" />
-            <Button fx:id="minimizeButton" layoutX="353.0" layoutY="11.0" mnemonicParsing="false" text="—" />
-            <Button fx:id="closeButton" layoutX="395.0" layoutY="11.0" mnemonicParsing="false" text="X" />
+            <Button fx:id="minimizeButton" layoutX="353.0" layoutY="11.0" mnemonicParsing="false" onAction="#onMinimizeButtonClick" text="—" />
+            <Button fx:id="closeButton" layoutX="395.0" layoutY="11.0" mnemonicParsing="false" onAction="#onCloseButtonClick" text="X" />
          </children>
       </AnchorPane>
       <Button fx:id="launchButton" layoutX="181.0" layoutY="93.0" mnemonicParsing="false" onAction="#onLaunchButtonClick" prefHeight="37.0" prefWidth="71.0" text="Launch" />
