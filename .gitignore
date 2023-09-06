@@ -1,5 +1,7 @@
 target/
+out
 src/main/java/com/github/gigazin/allen/core/Token.java
+src/main/resources/META-INF
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
