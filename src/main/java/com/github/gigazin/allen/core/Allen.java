@@ -1,8 +1,7 @@
 package com.github.gigazin.allen.core;
 
-import com.github.gigazin.allen.commands.LanguageEvent;
-import com.github.gigazin.allen.commands.TestCommand;
-import com.github.gigazin.allen.commands.TestEvent;
+import com.github.gigazin.allen.commands.SlashCommands;
+import com.github.gigazin.allen.commands.Events;
 import com.github.gigazin.allen.database.Database;
 
 import net.dv8tion.jda.api.JDA;
@@ -21,9 +20,8 @@ public class Allen {
         if (action.equals("launch") && !isLaunched) launch();
         else if (action.equals("shutdown") && isLaunched) shutdown();
 
-        jda.addEventListener(new TestEvent());
-        jda.addEventListener(new TestCommand());
-        jda.addEventListener(new LanguageEvent());
+        jda.addEventListener(new Events());
+        jda.addEventListener(new SlashCommands());
 
         Guild guild = jda.getGuildById(TestGuild.ID);
         if (guild != null) guild.upsertCommand("allentest", "test slash command").queue();
