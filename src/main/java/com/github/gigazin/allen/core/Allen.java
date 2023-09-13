@@ -1,11 +1,13 @@
 package com.github.gigazin.allen.core;
 
 import com.github.gigazin.allen.commands.LanguageEvent;
+import com.github.gigazin.allen.commands.TestCommand;
 import com.github.gigazin.allen.commands.TestEvent;
 import com.github.gigazin.allen.database.Database;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
 public class Allen {
@@ -15,16 +17,20 @@ public class Allen {
             GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.GUILD_EMOJIS_AND_STICKERS, GatewayIntent.SCHEDULED_EVENTS);
     private static boolean isLaunched = false;
 
-    public static void action(String action) {
+    public static void action(String action) throws InterruptedException {
         if (action.equals("launch") && !isLaunched) launch();
         else if (action.equals("shutdown") && isLaunched) shutdown();
 
         jda.addEventListener(new TestEvent());
+        jda.addEventListener(new TestCommand());
         jda.addEventListener(new LanguageEvent());
+
+        Guild guild = jda.getGuildById(TestGuild.ID);
+        if (guild != null) guild.upsertCommand("allentest", "test slash command").queue();
     }
 
-    public static void launch() {
-        jda = builder.build();
+    public static void launch() throws InterruptedException {
+        jda = builder.build().awaitReady();
         isLaunched = true;
         Database.connect();
     }

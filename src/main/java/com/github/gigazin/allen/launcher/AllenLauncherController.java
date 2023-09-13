@@ -29,14 +29,14 @@ public class AllenLauncherController {
     private boolean isLaunched = false;
 
     @FXML
-    protected void onLaunchButtonClick() {
+    protected void onLaunchButtonClick() throws InterruptedException {
         Allen.action("launch");
         loginStatus.setText("Allen has logged in! :)");
         isLaunched = true;
     }
 
     @FXML
-    protected void onCloseButtonClick(ActionEvent e) {
+    protected void onCloseButtonClick(ActionEvent e) throws InterruptedException {
         Stage stage;
         stage = (Stage)((Button)e.getSource()).getScene().getWindow();
         if (isLaunched) Allen.action("shutdown");

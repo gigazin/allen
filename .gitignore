@@ -1,5 +1,6 @@
 target/
 out
+src/main/java/com/github/gigazin/allen/core/TestGuild.java
 src/main/java/com/github/gigazin/allen/database/User.java
 src/main/java/com/github/gigazin/allen/core/Token.java
 src/main/resources/META-INF
