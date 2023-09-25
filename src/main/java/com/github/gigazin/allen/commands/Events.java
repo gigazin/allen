@@ -2,8 +2,14 @@ package com.github.gigazin.allen.commands;
 
 import com.github.gigazin.allen.settings.Default;
 import com.github.gigazin.allen.settings.Client;
+import com.github.gigazin.allen.database.Queries;
+
+import net.dv8tion.jda.api.events.guild.GuildJoinEvent;
+import net.dv8tion.jda.api.events.guild.GuildLeaveEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author gigazin
@@ -78,6 +84,26 @@ public class Events extends ListenerAdapter {
 
         }
 
+    }
+
+    /**
+     * Checks whether the bot has joined a guild and runs
+     * a query to insert the guild into the database.
+     *
+     * @param event The event containing the info from the guild.
+     */
+    public void onGuildJoin(@NotNull GuildJoinEvent event) {
+        Queries.insertGuild(event.getGuild());
+    }
+
+    /**
+     * Checks whether the bot has left a guild and runs
+     * a query to remove the guild from the database.
+     *
+     * @param event The event containing the info from the guild.
+     */
+    public void onGuildLeave(@NotNull GuildLeaveEvent event) {
+        Queries.removeGuild(event.getGuild());
     }
 
 }
